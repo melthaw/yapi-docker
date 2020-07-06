@@ -1,0 +1,30 @@
+version: '3.7'
+services:
+
+  yapi-mongodb:
+    container_name: yapi-mongodb
+    image: mongo
+    networks:
+      - yapi_network
+    ports:
+      - "27017:27017"
+    volumes:
+      - "mongodb_data_volume:/data/db"
+
+  yapi-server:
+    container_name: yapi-server
+    image: clouthinkin/yapi:$YAPI_VERSION
+    networks:
+      - yapi_network
+    depends_on:
+      - yapi-mongodb
+    ports:
+      - "8080:3000"
+    volumes:
+      - "./yapi/config.json:/yapi/config.json"
+
+networks:
+  yapi_network:
+
+volumes:
+  mongodb_data_volume:
