@@ -1,7 +1,7 @@
 {
   "port": "3000",
   "adminAccount": "admin@ymfe.org",
-  "versionNotify": true,
+  "versionNotify": false,
   "db": {
     "servername": "yapi-mongodb",
     "DATABASE": "yapi",
