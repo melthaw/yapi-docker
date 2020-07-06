@@ -16,6 +16,4 @@ COPY .vimrc /root/
 
 EXPOSE 3000
 
-VOLUME /var/log
-
 ENTRYPOINT ["entrypoint.sh"]
